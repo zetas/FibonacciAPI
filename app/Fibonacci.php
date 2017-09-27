@@ -29,7 +29,7 @@ class Fibonacci {
         self::_validate($number);
 
         // Another existing algorithm thanks to slack.
-        return (int) round(((5 ** .5 + 1) / 2) ** ($number-1) / 5 ** .5);
+        return round(((5 ** .5 + 1) / 2) ** ($number-1) / 5 ** .5);
     }
 
     private static function _validate($number) {

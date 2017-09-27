@@ -17,12 +17,12 @@ Output json response with fibonacci number at sequence number `n`
 **** 
 
 ### Examples
-
+**Note**: Live API exists at these URLS 
 ```
-$ curl "http://example.org/api/v1/fibonacci/sequence?count=5"
+$ curl "https://numbers.qubitlogic.net/api/v1/fibonacci/sequence?count=5"
 [0,1,1,2,3]
 
-$ curl "http://example.org/api/v1/fibonacci/4"
+$ curl "https://numbers.qubitlogic.net/api/v1/fibonacci/4"
 2
 ```
 
@@ -37,7 +37,8 @@ If using linux, you can deploy with the included ansible playbook like so:
 valid SSH key for this host.
 * Update `deploy/group_vars/lumen.yml` to reflect your environment (especially the 
 `ansistrano_deploy_to` variable).
-* Run `ansible-playbook deploy/playbook-deploy.yml -i production -u [user]` replace `[user]` with 
+* Run `ansible-playbook deploy/playbook-deploy.yml -i deploy/production -u [user]` replace `[user]` 
+with 
 your deploy user.
 * Point your webserver docroot to `[ansistrano_deploy_to]/current/public`. Replace 
 `ansistrano_deploy_to` with the directory you used in the `lumen.yml` file.  
