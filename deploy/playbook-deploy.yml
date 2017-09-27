@@ -1,5 +1,5 @@
 ---
 
-- hosts: laravel
+- hosts: lumen
   roles:
     - carlosbuenosvinos.ansistrano-deploy

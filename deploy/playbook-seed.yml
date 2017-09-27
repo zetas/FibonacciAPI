@@ -1,6 +1,6 @@
 ---
 
-- hosts: laravel
+- hosts: lumen
 
   tasks:
     - name: Seeding DB
