@@ -35,4 +35,10 @@ class NumbersTest extends TestCase {
 
         Fibonacci::atNumber(-5);
     }
+
+    public function testFibonacciAtNumberLargeNumber() {
+        $fib = Fibonacci::atNumber(200);
+
+        $this->assertGreaterThan(0, $fib);
+    }
 }
