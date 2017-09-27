@@ -1,20 +1,22 @@
 <?php
 
-use App\Fibonacci;
-
 class NumbersApiTest extends TestCase {
+
+    private $_badData = ['-123', 'abcdef', '#!%(!@#";'];
 
     public function testFibonacciSuccess() {
         $this->get('/api/v1/fibonacci?count=4')
             ->seeJsonEquals([0, 1, 1, 2]);
+
+        $this->get('/api/v1/fibonacci/5')
+            ->seeJson([3]);
     }
 
     public function testFibonacciFailure() {
-
-        $badData = ['-123', 'abcdef', '#!%(!@#";'];
-
-        foreach ($badData as $bd) {
+        foreach ($this->_badData as $bd) {
             $this->get('/api/v1/fibonacci?count=' . $bd)
+                ->seeStatusCode(422);
+            $this->get('/api/v1/fibonacci/' . $bd)
                 ->seeStatusCode(422);
         }
     }
