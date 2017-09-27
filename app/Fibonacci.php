@@ -10,11 +10,9 @@ class Fibonacci {
      * @param int $count
      * @return array
      */
-    public static function output($count) {
+    public static function sequence($count) {
 
-        if (!is_numeric($count) || $count <= 0) {
-            throw new \InvalidArgumentException('Invalid Fibonacci Count');
-        }
+        self::_validate($count);
 
         // Found this algorithm on stack. I don't think it's smart to re-invent the wheel.
         $fib = [0, 1];
@@ -24,5 +22,19 @@ class Fibonacci {
         }
 
         return $fib;
+    }
+
+    public static function atNumber($number) {
+
+        self::_validate($number);
+
+        // Another existing algorithm thanks to slack.
+        return (int) round(((5 ** .5 + 1) / 2) ** ($number-1) / 5 ** .5);
+    }
+
+    private static function _validate($number) {
+        if (!is_numeric($number) || $number <= 0) {
+            throw new \InvalidArgumentException('Invalid Fibonacci Argument');
+        }
     }
 }

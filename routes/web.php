@@ -13,6 +13,7 @@
 
 $router->group(['namespace' => 'API', 'prefix' => 'api'], function () use ($router) {
     $router->group(['namespace' => 'V1', 'prefix' => 'v1'], function () use ($router) {
-        $router->get('fibonacci', 'NumberController@fibonacci');
+        $router->get('fibonacci', 'NumberController@fibonacciSequence');
+        $router->get('fibonacci/{atNumber}', 'NumberController@fibonacciAtNumber');
     });
 });
